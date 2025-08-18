@@ -7,7 +7,7 @@
     <meta name="description" content="وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق بجامعة القصيم.">
     <meta name="theme-color" content="#F7F9FC">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -48,7 +48,7 @@
       .app-wrapper {
         max-width: 800px;
         margin: 0 auto;
-        padding: 1.5rem 1.5rem 6rem; /* Added padding-bottom for footer */
+        padding: 1.5rem 1.5rem 6rem;
       }
       
       .page-header {
@@ -188,9 +188,15 @@
 
       .links-group { display: flex; flex-direction: column; gap: 0.75rem; }
       .location-link {
-        display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem;
-        border-radius: var(--radius-button); background: var(--bg-button);
-        text-decoration: none; font-weight: 700; font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-button);
+        background: var(--bg-button);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
         transition: background-color 0.2s ease, color 0.2s ease;
         color: var(--text-dark);
       }
@@ -212,6 +218,30 @@
         display: flex; align-items: center; justify-content: center;
         font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
         box-shadow: 0 2px 5px rgba(49, 111, 234, 0.3);
+      }
+      
+      .link-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .map-btn-small {
+        width: 32px; height: 32px;
+        border-radius: 8px;
+        background: var(--bg-main);
+        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1rem;
+        flex-shrink: 0;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        cursor: pointer;
+      }
+      .map-btn-small:hover {
+        background-color: #e4eaf3;
+        transform: scale(1.1);
       }
       
       .empty-state { display: none; grid-column: 1 / -1; justify-content: center; align-items: center; text-align: center; padding: 4rem 1.5rem; flex-direction: column; gap: 1.5rem; color: var(--text-dark); }
@@ -303,11 +333,32 @@
         document.addEventListener('DOMContentLoaded', () => {
             const SITE_DATA_RAW = [
                 { category: 'colleges', title: 'الكليات', icon: 'fa-university', type: 'multi-department', departments: [
-                    { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "fa-map-pin", building: "F5" }, { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
+                    // --- JS CHANGE: ADDED PDF MAP FOR COMPUTER SCIENCE (FEMALE STUDENTS) ---
+                    { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ 
+                        { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C1" }, 
+                        { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "fa-map-pin", building: "F5", map_pdf: "maps/map-college-of-computer-f5.pdf" }, 
+                        { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, 
+                        { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, 
+                        { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, 
+                        { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } 
+                    ] },
                     { title: "كلية العمارة والتخطيط", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية الهندسة", icon: "fa-cogs", links: [ { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin", building: "A5" }, { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية العلوم", icon: "fa-flask", links: [ { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A5" }, { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "fa-map-pin", building: "F2" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F4" } ] },
+                    { title: "كلية الهندسة", icon: "fa-cogs", links: [ 
+                        { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin", building: "A5" }, 
+                        { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin", map_pdf: "maps/map-college-of-engineering-b1.pdf" } 
+                    ] },
+                    { title: "كلية العلوم", icon: "fa-flask", links: [ 
+                        { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A5" }, 
+                        { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "fa-map-pin", building: "F2", map_pdf: "maps/map-college-of-sciences-f2.pdf" }, 
+                        { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, 
+                        { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, 
+                        { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, 
+                        { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } 
+                    ] },
+                    { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ 
+                        { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "fa-map-pin", building: "A6" }, 
+                        { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F4", map_pdf: "maps/map-college-of-sharia-f4.pdf" } 
+                    ] },
                     { title: "كلية اللغات", icon: "fa-language", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "fa-map-pin" } ] },
                     { title: "كلية الزراعة", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin" } ] },
                     { title: "كلية الطب البيطري", icon: "fa-paw", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "fa-map-pin", building: "A2" } ] },
@@ -351,12 +402,20 @@
                 
                 const createLinksGroup = links => `<div class="links-group">${links.map(link => {
                     const badgeHTML = link.building ? `<div class="building-badge">${link.building}</div>` : '';
+                    
+                    const mapButtonHTML = link.map_pdf
+                        ? `<div role="button" onclick="event.preventDefault(); event.stopPropagation(); window.open('${link.map_pdf}', '_blank');" class="map-btn-small" title="مخطط المبنى"><i class="fas fa-map-marked-alt"></i></div>`
+                        : '';
+                    
                     return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="location-link">
                                 <div class="link-main-content">
                                     <i class="fas ${link.icon}"></i>
                                     <span>${link.text}</span>
                                 </div>
-                                ${badgeHTML}
+                                <div class="link-actions">
+                                    ${mapButtonHTML}
+                                    ${badgeHTML}
+                                </div>
                             </a>`;
                 }).join('')}</div>`;
 
