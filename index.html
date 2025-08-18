@@ -7,8 +7,9 @@
     <meta name="description" content="وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق بجامعة القصيم.">
     <meta name="theme-color" content="#F7F9FC">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- --- CHANGE: Replaced 'Cairo' font with 'IBM Plex Sans Arabic' --- -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
@@ -37,7 +38,8 @@
       @keyframes fadeOut { to { opacity: 0; transform: translateY(10px); } }
 
       body {
-        font-family: 'Cairo', sans-serif;
+        /* --- CHANGE: Updated font-family --- */
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
         background-color: var(--bg-main);
         color: var(--text-dark);
         direction: rtl;
@@ -63,7 +65,8 @@
       }
       .page-title {
         font-size: clamp(2.2rem, 8vw, 2.8rem);
-        font-weight: 900;
+        /* --- CHANGE: Updated font-weight to match available weight --- */
+        font-weight: 700;
         line-height: 1.3;
       }
       .page-subtitle {
@@ -71,7 +74,7 @@
         max-width: 450px;
         margin: 0.5rem auto 0;
         line-height: 1.7;
-        font-weight: 600;
+        font-weight: 400; /* Adjusted for better readability with IBM font */
         opacity: 0.8;
       }
       
@@ -108,7 +111,7 @@
         border: 2px solid var(--bg-card);
         border-radius: var(--radius-full);
         color: var(--text-dark);
-        font-family: 'Cairo', sans-serif;
+        font-family: 'IBM Plex Sans Arabic', sans-serif;
         font-size: 1rem;
         font-weight: 600;
         box-shadow: 0 15px 35px -10px rgba(150, 170, 200, 0.3);
@@ -129,7 +132,7 @@
         width: 100%;
       }
       .filter-btn {
-        background: transparent; border: none; font-family: 'Cairo', sans-serif; font-weight: 800;
+        background: transparent; border: none; font-family: 'IBM Plex Sans Arabic', sans-serif; font-weight: 700;
         font-size: 1.1rem; color: var(--text-secondary); cursor: pointer; padding: 0.5rem 0.25rem;
         transition: color 0.3s ease; position: relative;
       }
@@ -174,7 +177,7 @@
         gap: 1rem;
         flex-direction: row-reverse;
       }
-      .card-header .title { font-size: 1.6rem; font-weight: 800; color: var(--text-dark); }
+      .card-header .title { font-size: 1.6rem; font-weight: 700; color: var(--text-dark); }
       .card-header .icon-wrapper {
         width: 44px; height: 44px;
         border-radius: 12px;
@@ -195,7 +198,7 @@
         border-radius: var(--radius-button);
         background: var(--bg-button);
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 1rem;
         transition: background-color 0.2s ease, color 0.2s ease;
         color: var(--text-dark);
@@ -248,7 +251,7 @@
       .empty-state.is-visible { display: flex; }
       .empty-state .icon { font-size: 3rem; color: var(--accent-color); opacity: 0.5; }
       .empty-state span { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
-      .empty-state .reset-btn { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: var(--radius-full); font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s ease; }
+      .empty-state .reset-btn { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: var(--radius-full); font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s ease; }
       .empty-state .reset-btn:hover { transform: scale(1.05); }
 
       .page-footer {
@@ -259,7 +262,7 @@
         background-color: var(--dark-blue);
         color: white;
         padding: 0.75rem 1.5rem;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 0.9rem;
         display: flex;
         align-items: center;
@@ -333,7 +336,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const SITE_DATA_RAW = [
                 { category: 'colleges', title: 'الكليات', icon: 'fa-university', type: 'multi-department', departments: [
-                    // --- JS CHANGE: ADDED PDF MAP FOR COMPUTER SCIENCE (FEMALE STUDENTS) ---
                     { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ 
                         { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C1" }, 
                         { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "fa-map-pin", building: "F5", map_pdf: "maps/map-college-of-computer-f5.pdf" }, 
