@@ -3,429 +3,449 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>دليل جامعة القصيم</title>
+    <title>دليل مواقع جامعة القصيم</title>
     <meta name="description" content="وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق بجامعة القصيم.">
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#F7F9FC">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
       :root {
-        --primary-hue: 220;
-        --primary-sat: 90%;
-        --primary-light: 65%;
-        --rgb-primary: 61, 133, 255;
-        
-        --secondary-hue: calc(var(--primary-hue) + 40);
-        --secondary-sat: calc(var(--primary-sat) - 10%);
-        
-        --primary: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
-        --primary-dark: hsl(var(--primary-hue), var(--primary-sat), calc(var(--primary-light) - 10%));
-        --secondary: hsl(var(--secondary-hue), var(--secondary-sat), var(--primary-light));
-        
-        --bg: #0a0a0a;
-        --bg-card: rgba(20, 20, 22, 0.75);
-        --border: rgba(255, 255, 255, 0.1);
-        --text-light: #f0f0f0;
-        --text-medium: #a9a9b9;
-        --font-body: "IBM Plex Sans Arabic", sans-serif;
-        --font-title: "IBM Plex Sans Arabic", sans-serif;
-        
-        --radius: 20px;
-        --radius-md: 16px;
+        --accent-color: #316FEA;
+        --dark-blue: #0A2D57;
+        --bg-main: #F7F9FC;
+        --bg-card: #FFFFFF;
+        --bg-button: #F0F4F8;
+        --text-dark: #192a4e;
+        --text-secondary: #8A94A6;
+        --radius-card: 24px;
+        --radius-button: 16px;
         --radius-full: 999px;
+        --shadow: 0 10px 40px -15px rgba(150, 170, 200, 0.4);
         --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
-        --transition-main: 0.5s var(--ease-out-quint);
-        --transition-fast: 0.3s var(--ease-out-quint);
       }
+
       * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
       html { scroll-behavior: smooth; }
-      
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: var(--bg); }
-      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; border: 2px solid transparent; background-clip: content-box; }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
 
-      @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-      @keyframes popIn { from { opacity: 0; transform: translateY(20px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+      @keyframes popIn { 
+        from { opacity: 0; transform: translateY(20px) scale(0.98); } 
+        to { opacity: 1; transform: translateY(0) scale(1); } 
+      }
       @keyframes fadeOut { to { opacity: 0; transform: translateY(10px); } }
-      @keyframes modalPopIn { from { opacity: 0; transform: translateY(15px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-      @keyframes modalPopOut { to { opacity: 0; transform: translateY(15px) scale(0.95); } }
-      @keyframes move-aurora-1 { 0% { transform: translate(0, 0) rotate(0deg) scale(1); } 50% { transform: translate(25vw, 15vh) rotate(180deg) scale(1.3); } 100% { transform: translate(0, 0) rotate(360deg) scale(1); } }
-      @keyframes move-aurora-2 { 0% { transform: translate(0, 0) rotate(0deg) scale(1.2); } 50% { transform: translate(-30vw, -20vh) rotate(-150deg) scale(1); } 100% { transform: translate(0, 0) rotate(-360deg) scale(1.2); } }
-      
-      body { font-family: var(--font-body); background-color: var(--bg); color: var(--text-medium); direction: rtl; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; transition: background-color 0.5s ease; }
-      body.modal-open { overflow: hidden !important; }
 
-      .cosmic-bg-container{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;overflow:hidden}
-      #starfield-canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-dark);
+        direction: rtl;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
 
-      .app-wrapper { min-height: 100vh; position: relative; padding: 3rem 1.5rem; }
+      .app-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 1.5rem 1.5rem 6rem; /* Added padding-bottom for footer */
+      }
       
-      .aurora-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1; }
-      .aurora-dot { position: absolute; border-radius: 50%; filter: blur(120px); transition: background-color .5s ease; opacity: 0.15; }
-      .aurora-dot-1 { width: 60vmax; height: 60vmax; background-color: var(--primary); top: -20%; left: -20%; animation: move-aurora-1 30s infinite alternate ease-in-out; }
-      .aurora-dot-2 { width: 55vmax; height: 55vmax; background-color: var(--secondary); bottom: -25%; right: -15%; animation: move-aurora-2 35s infinite alternate-reverse ease-in-out; animation-delay: -5s; }
+      .page-header {
+        background-image: linear-gradient(160deg, #12427d, var(--dark-blue)),
+                          radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+        color: #FFFFFF;
+        padding: 2.5rem;
+        border-radius: var(--radius-card);
+        text-align: center;
+        box-shadow: 0 10px 30px -10px rgba(10, 45, 87, 0.5);
+        animation: popIn 0.8s var(--ease-out-quint) .1s both;
+      }
+      .page-title {
+        font-size: clamp(2.2rem, 8vw, 2.8rem);
+        font-weight: 900;
+        line-height: 1.3;
+      }
+      .page-subtitle {
+        font-size: 1rem;
+        max-width: 450px;
+        margin: 0.5rem auto 0;
+        line-height: 1.7;
+        font-weight: 600;
+        opacity: 0.8;
+      }
+      
+      .controls-container {
+        position: relative;
+        margin-top: -2.5rem;
+        margin-bottom: 2rem;
+        z-index: 10;
+        animation: popIn 0.8s var(--ease-out-quint) .2s both;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
 
-      .container { width: 100%; max-width: 1200px; z-index: 1; margin: 0 auto; position: relative; }
+      .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 550px;
+      }
+      .search-icon {
+        position: absolute;
+        top: 50%;
+        right: 28px;
+        transform: translateY(-50%);
+        color: var(--text-secondary);
+        transition: color 0.3s ease;
+        pointer-events: none;
+      }
+      #search-input {
+        width: 100%;
+        padding: 1.1rem 3.5rem 1.1rem 1.5rem;
+        background: var(--bg-card);
+        border: 2px solid var(--bg-card);
+        border-radius: var(--radius-full);
+        color: var(--text-dark);
+        font-family: 'Cairo', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 15px 35px -10px rgba(150, 170, 200, 0.3);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      #search-input::placeholder { color: var(--text-secondary); }
+      #search-input:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 10px 30px -10px rgba(49, 111, 234, 0.4);
+      }
+      #search-input:focus ~ .search-icon { color: var(--accent-color); }
       
-      a, button { outline: none; }
-      *:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        width: 100%;
+      }
+      .filter-btn {
+        background: transparent; border: none; font-family: 'Cairo', sans-serif; font-weight: 800;
+        font-size: 1.1rem; color: var(--text-secondary); cursor: pointer; padding: 0.5rem 0.25rem;
+        transition: color 0.3s ease; position: relative;
+      }
+      .filter-btn.is-active { color: var(--accent-color); }
+      .filter-btn::after {
+        content: ''; position: absolute; bottom: 0; right: 0;
+        width: 100%; height: 3px; background-color: var(--accent-color); border-radius: 2px;
+        transform: scaleX(0); transition: transform 0.3s var(--ease-out-quint);
+      }
+      .filter-btn.is-active::after { transform: scaleX(1); }
 
-      .page-header { text-align: center; margin-bottom: 2rem; animation: popIn 0.8s var(--ease-out-quint) .1s both; }
-      .page-title { font-family: var(--font-title); font-weight: 700; font-size: clamp(2.8rem, 6vw, 4rem); margin-bottom: 0.75rem; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradient-animation 6s ease-in-out infinite; }
-      .page-subtitle { color: var(--text-medium); font-size: clamp(1rem, 2vw, 1.25rem); animation: popIn 0.8s var(--ease-out-quint) .3s both; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+      .content-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        min-height: 200px;
+      }
       
-      .filter-carousel-wrapper { width: 100%; height: 80px; margin: 0 auto 2.5rem; position: relative; overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); cursor: grab; }
-      .filter-carousel-wrapper.is-dragging { cursor: grabbing; }
-      #primary-carousel-wrapper { animation: popIn 0.8s var(--ease-out-quint) .4s both; }
-      
-      .filter-carousel-track { display: flex; align-items: center; position: absolute; top: 0; left: 0; height: 100%; will-change: transform; user-select: none; }
-      .filter-carousel-track.is-dragging { pointer-events: none; }
-      .filter-btn { background: transparent; border: none; font-family: var(--font-body); font-weight: 700; font-size: 1.2rem; color: var(--text-medium); cursor: pointer; padding: 0.75rem 1.5rem; white-space: nowrap; opacity: 0.6; transform: scale(0.9); transition: transform 0.4s ease, opacity 0.4s ease, color 0.4s ease; position: relative; }
-      .filter-btn.is-active { color: var(--text-light); opacity: 1; transform: scale(1); }
-      .filter-btn.is-active::after { content: ''; position: absolute; bottom: 5px; right: 50%; transform: translateX(50%); width: 40%; height: 3px; background-image: linear-gradient(to left, var(--primary), var(--secondary)); border-radius: 2px; transition: all 0.4s ease; box-shadow: 0 0 15px var(--primary); }
-
-      .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; position: relative; min-height: 200px; }
-      .link-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); transition: transform var(--transition-main), box-shadow var(--transition-main), border-color var(--transition-main), background-color var(--transition-main); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05); }
+      .content-card {
+        background-color: var(--bg-card);
+        border-radius: var(--radius-card);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        animation: popIn 0.6s var(--ease-out-quint) both;
+        animation-delay: var(--animation-order, 0s);
+      }
       .is-filtered-out { display: none !important; }
       .is-hiding { animation: fadeOut 0.3s ease-out forwards; animation-delay: var(--animation-order, 0s); }
       .is-showing { animation: popIn 0.6s var(--ease-out-quint) both; animation-delay: var(--animation-order, 0s); }
       
-      .link-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 20px 50px -15px rgba(0,0,0,0.5), 0 0 30px -10px hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.6), inset 0 1px 0 rgba(255,255,255,0.05); border-color: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.4); }
-      .span-full-width { grid-column: 1 / -1; }
-
-      .card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
-      .card-header .icon { font-size: 1.8rem; color: var(--primary); transition: color var(--transition-fast); }
-      .card-title { font-family: var(--font-title); font-weight: 700; font-size: clamp(1.5rem, 4vw, 1.8rem); white-space: nowrap; color: var(--text-light); }
-      .card-section-title { font-family: var(--font-body); font-weight: 700; font-size: 1.1rem; color: var(--text-medium); margin: 1.5rem 0 1rem 0; display: flex; align-items: center; gap: 0.75rem; }
-      .card-section-title i { color: var(--primary-dark); }
-      .button-group { display: flex; flex-direction: column; gap: 1rem; }
-      
-      .link-button { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 0.9rem 1.5rem; border-radius: var(--radius-full); background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border); color: var(--text-medium); text-decoration: none; font-weight: 700; font-size: 1rem; transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast); position: relative; overflow: hidden; }
-      .link-button i { font-size: 1.2rem; transition: transform 0.2s ease; }
-      .link-button:hover { transform: translateY(-3px); border-color: var(--primary); background: hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.1); color: var(--text-light); }
-      .link-button:hover i { transform: scale(1.1); }
-      
-      @media (min-width: 768px) {
-        .link-button {
-            flex-direction: row-reverse;
-            padding: 1rem 2rem;
-        }
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--bg-main);
+      }
+      .card-title-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-direction: row-reverse;
+      }
+      .card-header .title { font-size: 1.6rem; font-weight: 800; color: var(--text-dark); }
+      .card-header .icon-wrapper {
+        width: 44px; height: 44px;
+        border-radius: 12px;
+        background-color: var(--bg-button);
+        color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
       }
 
-      .departments-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-      .department-section { border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; position: relative; overflow: hidden; background: radial-gradient(circle at 100% 0, hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.15), transparent 50%), rgba(0, 0, 0, 0.2); transition: background-color var(--transition-fast), border-color var(--transition-fast); }
-      .department-section:hover { border-color: hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.3); background: radial-gradient(circle at 100% 0, hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.25), transparent 60%), hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.05); }
-      .department-title { display: flex; align-items: center; gap: 0.75rem; color: var(--text-light); font-size: 1.4rem; font-family: var(--font-title); padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
-      .department-title i { color: var(--primary); }
-      .department-section .button-group { margin-top: 1.2rem; }
+      .links-group { display: flex; flex-direction: column; gap: 0.75rem; }
+      .location-link {
+        display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-button); background: var(--bg-button);
+        text-decoration: none; font-weight: 700; font-size: 1rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        color: var(--text-dark);
+      }
+      .location-link:hover {
+        background-color: #e4eaf3;
+      }
+      .link-main-content {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .location-link i { font-size: 1.1rem; color: var(--accent-color); }
       
-      .empty-state { grid-column: 1 / -1; display: none; justify-content: center; align-items: center; text-align: center; padding: 4rem 1.5rem; flex-direction: column; gap: 1.5rem; animation: popIn 0.5s ease both; color: var(--text-light); }
+      .building-badge {
+        min-width: 32px; height: 32px;
+        padding: 0 0.5rem;
+        border-radius: 8px;
+        background: var(--accent-color); color: white;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
+        box-shadow: 0 2px 5px rgba(49, 111, 234, 0.3);
+      }
+      
+      .empty-state { display: none; grid-column: 1 / -1; justify-content: center; align-items: center; text-align: center; padding: 4rem 1.5rem; flex-direction: column; gap: 1.5rem; color: var(--text-dark); }
       .empty-state.is-visible { display: flex; }
-      .empty-state .icon { font-size: 3rem; color: var(--primary); opacity: 0.5; }
+      .empty-state .icon { font-size: 3rem; color: var(--accent-color); opacity: 0.5; }
       .empty-state span { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
+      .empty-state .reset-btn { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: var(--radius-full); font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s ease; }
+      .empty-state .reset-btn:hover { transform: scale(1.05); }
 
-      .page-footer { text-align: center; color: var(--text-medium); font-size: .9rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; padding-top: 3rem; margin-top: 4rem; border-top: 1px solid var(--border); animation: popIn 0.8s var(--ease-out-quint) .6s both; }
-      .footer-controls { display: flex; align-items: center; gap: 1.5rem; }
-      .footer-link { color: var(--text-medium); transition: color var(--transition-fast), transform var(--transition-fast); display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; font-weight: 700; }
-      .footer-link:hover { color: var(--text-light); transform: scale(1.05); }
-      .footer-icon-btn { background: transparent; border: none; color: var(--text-medium); font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; text-decoration: none; }
-      .footer-icon-btn:hover { color: var(--primary); background-color: rgba(var(--rgb-primary), 0.1); transform: scale(1.1); }
-      .footer-link svg { font-size: 1.5rem; transition: transform 0.3s ease; }
-      .footer-link:hover svg { transform: scale(1.1); }
-      
-      .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); z-index: 1000; display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.4s ease; }
-      .modal-overlay.is-open { opacity: 1; }
-      .modal-content { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; width: 90%; max-width: 500px; z-index: 1001; position: relative; backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px); transition: background-color 0.5s ease, border-color 0.5s ease; animation: modalPopIn 0.4s var(--ease-out-quint) forwards; }
-      .modal-content.is-closing { animation: modalPopOut 0.3s ease-out forwards; }
-      .modal-close-btn { position: absolute; top: 1rem; left: 1rem; background: none; border: none; color: var(--text-medium); font-size: 1.8rem; cursor: pointer; transition: 0.3s ease; padding: 0.25rem; line-height: 1; }
-      .modal-close-btn:hover { color: var(--text-light); transform: rotate(90deg); }
-      .modal-header { font-family: var(--font-title); font-size: 1.5rem; color: var(--text-light); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); transition: color 0.5s ease, border-color 0.5s ease; }
-      
-      .settings-content { display: flex; flex-direction: column; gap: 1rem; text-align: right; }
-      .settings-section { display: flex; flex-direction: column; gap: 1rem; }
-      .settings-section-title { font-family: var(--font-title); font-size: 1.2rem; color: var(--primary); margin-bottom: 0; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); transition: color 0.5s ease, border-color 0.5s ease; }
-      .settings-item { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-      .settings-item h4 { font-family: var(--font-body); font-weight: 700; font-size: 1rem; color: var(--text-light); transition: color 0.5s ease; margin: 0; }
-      .mode-toggle { display: flex; background: rgba(0,0,0,0.3); border: 1px solid var(--border); border-radius: var(--radius-full); padding: 4px; gap: 4px; transition: 0.5s ease; }
-      .mode-btn { padding: 0.4rem 1rem; border: none; border-radius: var(--radius-full); font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; cursor: pointer; background: transparent; color: var(--text-medium); transition: all 0.3s ease; user-select: none; }
-      .mode-btn.active { background: var(--primary); color: #fff; box-shadow: 0 2px 5px rgba(var(--rgb-primary), 0.2); }
-      .theme-picker { display: flex; gap: .5rem; align-items: center; flex-shrink: 0; }
-      .theme-dot { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; transition: transform .2s ease, border-color .2s ease; border: 2px solid transparent; }
-      .theme-dot:hover { transform: scale(1.2); }
-      .theme-dot.active { border-color: #fff; transform: scale(1.1); }
-      .color-picker-label { position: relative; width: 24px; height: 24px; border-radius: 50%; cursor: pointer; transition: all .2s ease; border: 2px solid var(--border); user-select: none; overflow: hidden; }
-      .color-picker-label:hover { transform: scale(1.2); }
-      .color-picker-label.active { border-color: #fff; transform: scale(1.1); }
-      .color-picker-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; border: none; padding: 0; cursor: pointer; }
-      
-      .light-mode { --bg: #f5f9ff; --bg-card: rgba(255, 255, 255, 0.7); --border: hsl(var(--primary-hue) 50% 50% / 0.15); --text-light: #202020; --text-medium: #707070; --primary-sat: 80%; }
-      .light-mode .aurora-dot { opacity: 0.3; filter: blur(140px); }
-      .light-mode .link-card { box-shadow: 0 10px 40px -15px rgba(100, 140, 180, 0.3), 0 1px 2px rgba(0,0,0,0.02); backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%); }
-      .light-mode .link-button { background: hsl(var(--primary-hue) 60% 50% / 0.08); border-color: hsl(var(--primary-hue) 60% 50% / 0.2); color: var(--text-medium); }
-      .light-mode .link-button:hover { color: var(--primary-dark); background: hsl(var(--primary-hue) 60% 50% / 0.15); border-color: hsl(var(--primary-hue) 60% 50% / 0.3); }
-      .light-mode .mode-toggle { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); }
-      .light-mode .department-section { background: radial-gradient(circle at 100% 0, hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.08), transparent 50%), #fff; }
-      .light-mode .department-section:hover { background: radial-gradient(circle at 100% 0, hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.12), transparent 70%), hsl(var(--primary-hue) var(--primary-sat) var(--primary-light) / 0.02); }
-      .light-mode .footer-icon-btn:hover { background-color: rgba(var(--rgb-primary), 0.1); }
-      .light-mode .modal-overlay { background-color: rgba(0, 0, 0, 0.15); }
-      .light-mode .modal-close-btn:hover { color: var(--text-light); }
-      .light-mode .settings-item h4, .light-mode .modal-header { color: var(--text-light); }
-      
+      .page-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--dark-blue);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        z-index: 20;
+      }
+      .footer-link {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        opacity: 0.8;
+        transition: opacity 0.2s ease;
+        flex-direction: row-reverse;
+      }
+      .footer-link:hover {
+        opacity: 1;
+      }
+      .footer-link .icon-bg {
+        width: 28px; height: 28px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
     </style>
 </head>
 <body>
-    <div class="cosmic-bg-container">
-        <canvas id="starfield-canvas"></canvas>
-    </div>
-
     <div class="app-wrapper">
-        <div class="aurora-bg">
-            <div class="aurora-dot aurora-dot-1"></div>
-            <div class="aurora-dot aurora-dot-2"></div>
-        </div>
+        <header class="page-header">
+            <h1 class="page-title">دليل مواقع الجامعة</h1>
+            <p class="page-subtitle">وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق داخل الحرم الجامعي.</p>
+        </header>
         
-        <div class="container">
-            <header class="page-header">
-                <h1 class="page-title">دليل جامعة القصيم</h1>
-                <p class="page-subtitle">وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق داخل الحرم الجامعي.</p>
-            </header>
-            
-            <div class="filter-carousel-wrapper" id="primary-carousel-wrapper">
-                <div class="filter-carousel-track" id="primary-carousel-track"></div>
+        <div class="controls-container">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="search" id="search-input" placeholder="ابحث عن كلية, عمادة, مرفق..." aria-label="صندوق البحث">
             </div>
 
-            <main class="links-grid" id="links-grid">
-                <div class="empty-state" id="empty-state">
-                    <i class="fas fa-compass icon"></i>
-                    <span>لا توجد نتائج تطابق هذا التصنيف.</span>
-                    <button class="link-button" id="reset-filter-btn">عرض الكل</button>
-                </div>
-            </main>
-
-            <footer class="page-footer">
-                <span class="footer-link">© <span id="currentYear"></span> | ظلام</span>
-                <div class="footer-controls">
-                    <button id="settings-btn" class="footer-icon-btn" title="الإعدادات" aria-label="الإعدادات"></button>
-                    <a href="https://t.me/mutlaq1" class="footer-link" target="_blank" rel="noopener noreferrer" title="تواصل معي على تليجرام" aria-label="تواصل معي على تليجرام"></a>
-                </div>
-            </footer>
+            <div class="filter-container" id="filter-container">
+                <!-- Filter buttons will be injected here -->
+            </div>
         </div>
+
+        <main class="content-grid" id="content-grid">
+            <div class="empty-state" id="empty-state">
+                <i class="fas fa-map-marked-alt icon"></i>
+                <span>لا توجد نتائج تطابق بحثك.</span>
+                <button class="reset-btn" id="reset-filter-btn">عرض الكل</button>
+            </div>
+        </main>
     </div>
     
-    <div id="settings-modal-container"></div>
+    <footer class="page-footer">
+        <a href="https://t.me/Qassim_U" class="footer-link" target="_blank" rel="noopener noreferrer">
+            <span class="icon-bg"><i class="fas fa-users"></i></span>
+            <span>Qassim_U</span>
+        </a>
+        <a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">
+            <span class="icon-bg"><i class="fas fa-bullhorn"></i></span>
+            <span>Qassim_QU</span>
+        </a>
+    </footer>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const SITE_DATA = [
-                {
-                    category: 'colleges',
-                    title: 'الكليات',
-                    icon: 'fa-university',
-                    type: 'multi-department',
-                    departments: [
-                        { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ { href: "https://maps.app.goo.gl/aM5wytWf1N4fiKE3A", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية الهندسة", icon: "fa-cogs", links: [ { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية العمارة", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية العلوم", icon: "fa-flask", links: [ { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية اللغات والعلوم الإنسانية", icon: "fa-language", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/jfj83iytZfJdD5uy8", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/jfj83iytZfJdD5uy8", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية التربية", icon: "fa-chalkboard-teacher", links: [ { href: "https://maps.app.goo.gl/E3nZVpYi7t6j3FY49", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/Vv6xvC99yEU6BZBAA", text: "مقر رياض الخبراء - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية الفنون والتصاميم", icon: "fa-palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية الزراعة والأغذية", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin" } ] },
-                        { title: "كلية الطب البيطري", icon: "fa-paw", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "fa-map-pin" } ] },
-                        { title: "كلية الأعمال والاقتصاد", icon: "fa-chart-line", links: [ { href: "https://maps.app.goo.gl/u4pxY6yhebFBZ5oX6", text: "المقر الرئيس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/xcy39GeUZnNK69SbA", text: "المقر الرئيس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/x8142f18EaHyCqAv8", text: "مقر الرس - طالبات", icon: "fa-map-pin" } ] },
-                        { title: "الكلية التطبيقية (الدبلوم)", icon: "fa-graduation-cap", links: [ { href: "https://www.qu.edu.sa/colleges/qac/locations/", text: "مواقع الطلاب والطالبات", icon: "fa-external-link-alt" } ] }
-                    ]
-                },
-                {
-                    category: 'deanships', title: 'العمادات', icon: 'fa-building-user', links: [
-                        { href: "https://maps.app.goo.gl/SGGQX3GqQjDU9Cc6A", icon: "fa-id-card-alt", text: "عمادة القبول والتسجيل" },
-                        { href: "https://maps.app.goo.gl/uavC8yXQFrNfrnR16", icon: "fa-users-cog", text: "عمادة شؤون الطلاب" },
-                        { href: "https://maps.app.goo.gl/uL7L58xZxehJ4pqt7", icon: "fa-book-reader", text: "عمادة الدراسات العليا والبحث العلمي" },
-                        { href: "https://maps.app.goo.gl/4zfgdfTRLjNhVCAD9", icon: "fa-desktop", text: "عمادة التعلم الإلكتروني وتقنية المعلومات" }
-                    ]
-                },
-                {
-                    category: 'facilities', title: 'المرافق والخدمات', icon: 'fa-map-signs', links: [
-                        { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c7a8c21d91:0xedc23a33b8b771a4", icon: "fa-hospital-user", text: "المدينة الطبية" },
-                        { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c8cbe278f7:0xb16f62d6ae48782", icon: "fa-clinic-medical", text: "العيادات الخارجية" },
-                        { href: "https://maps.app.goo.gl/kP97DjbXH2CpSUUE8", icon: "fa-car", text: "مدرسة تعليم القيادة" },
-                        { href: "https://maps.app.goo.gl/Fswf7gNWLw4ikM2B9", icon: "fa-shield-alt", text: "الأمن الجامعي" },
-                        { href: "https://goo.gl/maps/hUDYwKSKuPqRuBz36", icon: "fa-dumbbell", text: "النادي الرياضي" },
-                        { href: "https://maps.app.goo.gl/2CEU2VFW5bPPCZUV8", icon: "fa-futbol", text: "ملعب الجامعة" },
-                        { href: "https://maps.app.goo.gl/YnZUmvuQzq5s6wsV8", icon: "fa-microphone-alt", text: "مركز المؤتمرات" },
-                        { href: "https://maps.app.goo.gl/SbvFZ5XCKpAtdLsS9", icon: "fa-lightbulb", text: "مركز ريادة الأعمال الرقمية | كود" },
-                        { href: "https://maps.app.goo.gl/sdy9NRSA6iT8WXn68", icon: "fa-building", text: "إدارة السكن" },
-                        { href: "https://maps.app.goo.gl/rCG7yk96fjyPBS4T8", icon: "fa-bed", text: "السكن الطلابي (بنين)" }
-                    ]
-                }
+            const SITE_DATA_RAW = [
+                { category: 'colleges', title: 'الكليات', icon: 'fa-university', type: 'multi-department', departments: [
+                    { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "fa-map-pin", building: "F5" }, { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية العمارة والتخطيط", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الهندسة", icon: "fa-cogs", links: [ { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin", building: "A5" }, { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية العلوم", icon: "fa-flask", links: [ { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A5" }, { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "fa-map-pin", building: "F2" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F4" } ] },
+                    { title: "كلية اللغات", icon: "fa-language", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الزراعة", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الطب البيطري", icon: "fa-paw", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "fa-map-pin", building: "A2" } ] },
+                    { title: "كلية الإدارة والاقتصاد", icon: "fa-chart-line", links: [ { href: "https://maps.app.goo.gl/u4pxY6yhebFBZ5oX6", text: "طلاب", icon: "fa-map-pin", building: "A3" }, { href: "https://maps.app.goo.gl/xcy39GeUZnNK69SbA", text: "طالبات", icon: "fa-map-pin", building: "F3" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/x8142f18EaHyCqAv8", text: "مقر الرس - طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية التربية", icon: "fa-chalkboard-teacher", links: [ { href: "https://maps.app.goo.gl/E3nZVpYi7t6j3FY49", text: "طلاب", icon: "fa-map-pin", building: "A14" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin", building: "F8" }, { href: "https://maps.app.goo.gl/Vv6xvC99yEU6BZBAA", text: "مقر رياض الخبراء - طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الطب", icon: "fa-user-md", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B2" } ] },
+                    { title: "كلية الصيدلة", icon: "fa-pills", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B4" } ] },
+                    { title: "كلية التمريض", icon: "fa-briefcase-medical", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B5" } ] },
+                    { title: "كلية العلوم الطبية التطبيقية", icon: "fa-stethoscope", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "A4" } ] },
+                    { title: "الكلية التطبيقية", icon: "fa-layer-group", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C2" }, { href: "https://www.qu.edu.sa/colleges/qac/locations/", text: "بقية الفروع", icon: "fa-external-link-alt" } ] },
+                    { title: "كلية الفنون والتصاميم", icon: "fa-palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "طالبات", icon: "fa-map-pin", building: "F6" } ] }
+                ]},
+                { category: 'deanships', title: 'العمادات', icon: 'fa-building-user', links: [ { href: "https://maps.app.goo.gl/SGGQX3GqQjDU9Cc6A", icon: "fa-id-card-alt", text: "عمادة القبول والتسجيل" }, { href: "https://maps.app.goo.gl/uavC8yXQFrNfrnR16", icon: "fa-users-cog", text: "عمادة شؤون الطلاب" }, { href: "https://maps.app.goo.gl/uL7L58xZxehJ4pqt7", icon: "fa-book-reader", text: "عمادة الدراسات العليا والبحث العلمي" }, { href: "https://maps.app.goo.gl/4zfgdfTRLjNhVCAD9", icon: "fa-desktop", text: "عمادة التعلم الإلكتروني وتقنية المعلومات" } ] },
+                { category: 'facilities', title: 'المرافق والخدمات', icon: 'fa-map-signs', links: [ { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c7a8c21d91:0xedc23a33b8b771a4", icon: "fa-hospital-user", text: "المدينة الطبية" }, { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c8cbe278f7:0xb16f62d6ae48782", icon: "fa-clinic-medical", text: "العيادات الخارجية" }, { href: "https://maps.app.goo.gl/kP97DjbXH2CpSUUE8", icon: "fa-car", text: "مدرسة تعليم القيادة" }, { href: "https://maps.app.goo.gl/Fswf7gNWLw4ikM2B9", icon: "fa-shield-alt", text: "الأمن الجامعي" }, { href: "https://goo.gl/maps/hUDYwKSKuPqRuBz36", icon: "fa-dumbbell", text: "النادي الرياضي" }, { href: "https://maps.app.goo.gl/2CEU2VFW5bPPCZUV8", icon: "fa-futbol", text: "ملعب الجامعة" }, { href: "https://maps.app.goo.gl/YnZUmvuQzq5s6wsV8", icon: "fa-microphone-alt", text: "مركز المؤتمرات" }, { href: "https://maps.app.goo.gl/SbvFZ5XCKpAtdLsS9", icon: "fa-lightbulb", text: "مركز ريادة الأعمال الرقمية | كود" }, { href: "https://maps.app.goo.gl/sdy9NRSA6iT8WXn68", icon: "fa-building", text: "إدارة السكن" }, { href: "https://maps.app.goo.gl/rCG7yk96fjyPBS4T8", icon: "fa-bed", text: "السكن الطلابي (بنين)" } ] }
             ];
-            const PRIMARY_FILTERS = [ { id: 'all', text: 'الكل' }, { id: 'colleges', text: 'الكليات' }, { id: 'deanships', text: 'العمادات' }, { id: 'facilities', text: 'المرافق' } ];
-            const PRESET_THEMES = { blue: '#5e9cff', purple: '#a777ff', green: '#00c853' };
-            const ICONS = { telegram: '<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 1.62 11.22c-.72-.24-.72-1.16 0-1.41l18.26-6.91c.63-.24 1.22.23 1.01.89L17.43 18.4c-.2 1.39-1.53 1.76-2.53.94l-4.26-3.51-2.86 2.72a.5.5 0 0 1-.88-.38v-4.48z"></path></svg>', cog: '<i class="fas fa-cog"></i>', times: '<i class="fas fa-times"></i>' };
             
-            const grid = document.getElementById('links-grid'), emptyState = document.getElementById('empty-state');
-            let activePrimaryFilterId = 'all', isAnimating = false;
+            const FLATTENED_DATA = [];
+            SITE_DATA_RAW.forEach(category => {
+                if (category.type === 'multi-department') {
+                    category.departments.forEach(dept => FLATTENED_DATA.push({ ...dept, category: category.category }));
+                } else { FLATTENED_DATA.push(category); }
+            });
 
-            const initCosmicEffects = () => {
-                const canvas = document.getElementById('starfield-canvas'); if (!canvas) return;
-                const ctx = canvas.getContext('2d');
-                let stars = [], shootingStars = [], scrollSpeed = 0, lastScrollY = window.scrollY;
-                let mouseX = 0, mouseY = 0;
-                function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-                window.addEventListener('mousemove', e => { mouseX = e.clientX - canvas.width / 2; mouseY = e.clientY - canvas.height / 2; });
-                class Star { constructor() { this.depth = Math.random() * 0.9 + 0.1; this.reset(); this.pulsate = Math.random() > 0.98; this.alpha = 0; this.alphaChange = (Math.random() * 0.02) + 0.005; this.vx = (Math.random() - 0.5) * 0.1 * this.depth; this.vy = (Math.random() - 0.5) * 0.1 * this.depth; } reset() { this.x = Math.random() * canvas.width; this.y = Math.random() * canvas.height; this.radius = (Math.random() * 1.2 + 0.3) * this.depth; this.maxAlpha = (Math.random() * 0.5 + 0.3) * this.depth; } draw() { const parallaxX = (mouseX / (canvas.width / 2)) * -25 * this.depth; const parallaxY = (mouseY / (canvas.height / 2)) * -25 * this.depth; if (this.pulsate) { this.alpha += this.alphaChange; if (this.alpha >= this.maxAlpha || this.alpha <= 0) this.alphaChange *= -1; } else { this.alpha = this.maxAlpha; } ctx.globalAlpha = this.alpha; ctx.beginPath(); ctx.arc(this.x + parallaxX, this.y + parallaxY, this.radius, 0, Math.PI * 2); ctx.fillStyle = `hsl(220, 80%, 95%)`; ctx.fill(); ctx.globalAlpha = 1; } update() { this.y += (scrollSpeed * this.depth) + this.vy; this.x += this.vx; if (this.x > canvas.width + this.radius) this.x = -this.radius; if (this.x < -this.radius) this.x = canvas.width + this.radius; if (this.y > canvas.height + this.radius) this.y = -this.radius; if (this.y < -this.radius) this.y = canvas.height + this.radius; this.draw(); } }
-                class ShootingStar { constructor() { this.reset(); } reset() { this.x = Math.random() * canvas.width; this.y = 0; this.len = Math.random() * 80 + 10; this.speed = Math.random() * 10 + 6; this.size = Math.random() * 1 + 0.1; this.waitTime = new Date().getTime() + Math.random() * 3000 + 500; this.active = false; } update() { if (this.active) { this.x -= this.speed; this.y += this.speed; if (this.x < 0 || this.y >= canvas.height) this.reset(); } else if (this.waitTime < new Date().getTime()) this.active = true; } draw() { if (this.active) { ctx.strokeStyle = `hsla(220, 100%, 80%, ${Math.random() * 0.5 + 0.5})`; ctx.lineWidth = this.size; ctx.beginPath(); ctx.moveTo(this.x, this.y); ctx.lineTo(this.x + this.len, this.y - this.len); ctx.stroke(); } } }
-                function initStars() { stars = []; shootingStars = []; const starCount = Math.floor(canvas.width * canvas.height / 8000); for (let i = 0; i < starCount; i++) { stars.push(new Star()); } for (let i = 0; i < 3; i++) { shootingStars.push(new ShootingStar()); } }
-                function animate() { requestAnimationFrame(animate); ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(s => s.update()); shootingStars.forEach(s => { s.update(); s.draw(); }); scrollSpeed *= 0.9; }
-                window.addEventListener('scroll', () => { const delta = window.scrollY - lastScrollY; scrollSpeed += delta * 0.03; lastScrollY = window.scrollY; });
-                window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
-                resizeCanvas(); initStars(); animate();
-            };
+            const PRIMARY_FILTERS = [ { id: 'deanships', text: 'العمادات' }, { id: 'colleges', text: 'الكليات' }, { id: 'facilities', text: 'المرافق' } ];
+            const DEFAULT_FILTER = 'colleges';
+            
+            const grid = document.getElementById('content-grid'), 
+                  emptyState = document.getElementById('empty-state'),
+                  searchInput = document.getElementById('search-input'),
+                  filterContainer = document.getElementById('filter-container');
+            let activePrimaryFilterId = DEFAULT_FILTER, isAnimating = false;
 
             const createCardHTML = (cardData, index) => {
-                const header = `<div class="card-header"><i class="fas ${cardData.icon} icon"></i><h2 class="card-title">${cardData.title}</h2></div>`;
-                const createButtonGroup = links => {
-                    return `<div class="button-group">${links.map(link => 
-                        `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="link-button"><i class="fas ${link.icon}"></i><span>${link.text}</span></a>`
-                    ).join('')}</div>`;
-                };
-                let body = '';
-                if (cardData.links) body = createButtonGroup(cardData.links);
-                else if (cardData.type === 'multi-department') {
-                    const depts = cardData.departments.map(dept => `<div class="department-section"><h4 class="department-title"><i class="fas ${dept.icon}"></i>${dept.title}</h4>${createButtonGroup(dept.links)}</div>`).join('');
-                    body = `<div class="departments-container">${depts}</div>`;
-                }
-                const fullWidthClass = cardData.type === 'multi-department' ? 'span-full-width' : '';
-                return `<section class="link-card is-filtered-out ${fullWidthClass}" data-category="${cardData.category}" style="--animation-order: ${index * 60}ms">${header}${body}</section>`;
+                const header = `
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <h2 class="title">${cardData.title}</h2>
+                            <div class="icon-wrapper"><i class="fas ${cardData.icon}"></i></div>
+                        </div>
+                    </div>`;
+                
+                const createLinksGroup = links => `<div class="links-group">${links.map(link => {
+                    const badgeHTML = link.building ? `<div class="building-badge">${link.building}</div>` : '';
+                    return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="location-link">
+                                <div class="link-main-content">
+                                    <i class="fas ${link.icon}"></i>
+                                    <span>${link.text}</span>
+                                </div>
+                                ${badgeHTML}
+                            </a>`;
+                }).join('')}</div>`;
+
+                const body = createLinksGroup(cardData.links);
+                return `<section class="content-card is-filtered-out" data-category="${cardData.category}" style="--animation-order: ${index * 50}ms">${header}${body}</section>`;
             };
             
             const filterContent = () => {
-                if (isAnimating) return; isAnimating = true;
-                const cards = Array.from(grid.querySelectorAll('.link-card'));
+                if (isAnimating) return; 
+                isAnimating = true;
+
+                const searchQuery = searchInput.value.toLowerCase().trim();
+                const cards = Array.from(grid.querySelectorAll('.content-card'));
                 const toHide = [], toShow = [];
                 let visibleCardCount = 0;
+                
                 cards.forEach(card => {
-                    const shouldShow = activePrimaryFilterId === 'all' || card.dataset.category === activePrimaryFilterId;
+                    const categoryMatch = card.dataset.category === activePrimaryFilterId;
+                    const searchMatch = searchQuery === '' || card.textContent.toLowerCase().includes(searchQuery);
+                    const shouldShow = categoryMatch && searchMatch;
+
                     if (shouldShow) visibleCardCount++;
                     const isVisible = !card.classList.contains('is-filtered-out');
+
                     if (shouldShow && !isVisible) toShow.push(card);
                     else if (!shouldShow && isVisible) toHide.push(card);
                 });
+
                 emptyState.classList.toggle('is-visible', visibleCardCount === 0);
                 let hideAnimationTime = toHide.length * 40 + 200;
-                toHide.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 40}ms`); card.classList.add('is-hiding'); card.addEventListener('animationend', () => { card.classList.add('is-filtered-out'); card.classList.remove('is-hiding'); }, { once: true }); });
+                toHide.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 30}ms`); card.classList.add('is-hiding'); card.addEventListener('animationend', () => { card.classList.add('is-filtered-out'); card.classList.remove('is-hiding'); }, { once: true }); });
+                
                 setTimeout(() => {
-                    toShow.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 60}ms`); card.classList.remove('is-filtered-out'); card.classList.add('is-showing'); card.addEventListener('animationend', () => card.classList.remove('is-showing'), { once: true }); });
-                    setTimeout(() => { isAnimating = false; }, toShow.length * 60 + 300);
+                    toShow.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 50}ms`); card.classList.remove('is-filtered-out'); card.classList.add('is-showing'); card.addEventListener('animationend', () => card.classList.remove('is-showing'), { once: true }); });
+                    setTimeout(() => { isAnimating = false; }, toShow.length * 50 + 300);
                 }, toHide.length > 0 ? hideAnimationTime : 0);
             };
             
-            const createCarouselInstance = (wrapperId, trackId, filters, onFilterChange) => {
-                const wrapper = document.getElementById(wrapperId), track = document.getElementById(trackId);
-                if (!wrapper || !track) return null;
-                const CLONE_COUNT = filters.length;
-                track.innerHTML = [...filters, ...filters, ...filters].map((f, i) => `<button class="filter-btn" data-filter="${f.id}" data-index="${i}" role="button" aria-pressed="false">${f.text}</button>`).join('');
-                const allButtons = Array.from(track.querySelectorAll('.filter-btn'));
-                let isDragging = false, startPos = 0, currentTranslate = 0, prevTranslate = 0, animationID, currentIndex = CLONE_COUNT, isClick = true, velocity = 0, lastPosition = 0;
-                const FRICTION = 0.94, AMPLIFIER = 1.5;
-                const setPosition = (p, withAnim) => { track.style.transition = withAnim ? 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)' : 'none'; track.style.transform = `translateX(${p}px)`; currentTranslate = p; };
-                const recenterTrack = (withAnim) => { const btn = allButtons[currentIndex]; if (!btn) return; const pos = -btn.offsetLeft + (wrapper.clientWidth / 2) - (btn.clientWidth / 2); setPosition(pos, withAnim); prevTranslate = pos; };
-                const activateFilter = (targetIndex, withAnim, triggerChange) => { currentIndex = targetIndex; recenterTrack(withAnim); const realIndex = targetIndex % CLONE_COUNT; allButtons.forEach((b, i) => { const isActive = i % CLONE_COUNT === realIndex; b.classList.toggle('is-active', isActive); b.setAttribute('aria-pressed', String(isActive)); }); if (triggerChange) onFilterChange(filters[realIndex].id); };
-                const getPosX = e => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-                const startDrag = e => { isClick = true; isDragging = true; startPos = getPosX(e); lastPosition = startPos; velocity = 0; cancelAnimationFrame(animationID); track.style.transition = 'none'; wrapper.classList.add('is-dragging'); };
-                const drag = e => { if (isDragging) { const currentPosition = getPosX(e); const moveX = currentPosition - startPos; if (Math.abs(moveX) > 5) isClick = false; velocity = currentPosition - lastPosition; lastPosition = currentPosition; setPosition(prevTranslate + moveX, false); } };
-                const endDrag = () => { if (!isDragging) return; isDragging = false; wrapper.classList.remove('is-dragging'); if (!isClick) { velocity *= AMPLIFIER; animationID = requestAnimationFrame(momentumScroll); } else { prevTranslate = currentTranslate; } };
-                const momentumScroll = () => { const trackWidth = track.scrollWidth/3; if(currentTranslate > -trackWidth){prevTranslate-=trackWidth;currentTranslate-=trackWidth;} if(currentTranslate < -trackWidth*2){prevTranslate+=trackWidth;currentTranslate+=trackWidth;} if (Math.abs(velocity) < 0.5) { cancelAnimationFrame(animationID); prevTranslate = currentTranslate; return; } currentTranslate += velocity; velocity *= FRICTION; setPosition(currentTranslate, false); animationID = requestAnimationFrame(momentumScroll); };
-                allButtons.forEach(b => b.addEventListener('click', e => { if (isClick) { cancelAnimationFrame(animationID); activateFilter(parseInt(e.currentTarget.dataset.index), true, true); } }));
-                track.addEventListener('mousedown', startDrag); track.addEventListener('touchstart', startDrag, { passive: true });
-                track.addEventListener('mousemove', drag); track.addEventListener('touchmove', drag, { passive: true });
-                window.addEventListener('mouseup', endDrag); window.addEventListener('touchend', endDrag);
-                window.addEventListener('resize', () => recenterTrack(false));
-                return { activateByIndex: (index, withAnim, triggerChange) => activateFilter(index, withAnim, triggerChange), getIndexById: id => filters.findIndex(f => f.id === id) };
-            };
+            const initFilters = () => {
+                filterContainer.innerHTML = PRIMARY_FILTERS.map(f => 
+                    `<button class="filter-btn" data-filter="${f.id}">${f.text}</button>`
+                ).join('');
 
-            const handlePrimaryFilterChange = newId => { 
-                if (activePrimaryFilterId === newId && newId !== 'all') return;
-                activePrimaryFilterId = newId; 
-                filterContent(); 
+                const filterButtons = filterContainer.querySelectorAll('.filter-btn');
+
+                const handleFilterClick = (e) => {
+                    const targetButton = e.currentTarget;
+                    const newFilterId = targetButton.dataset.filter;
+                    
+                    if (activePrimaryFilterId === newFilterId) return;
+                    activePrimaryFilterId = newFilterId;
+
+                    filterButtons.forEach(btn => btn.classList.remove('is-active'));
+                    targetButton.classList.add('is-active');
+
+                    filterContent();
+                };
+
+                filterButtons.forEach(btn => btn.addEventListener('click', handleFilterClick));
+                
+                return {
+                    setActive: (filterId) => {
+                        activePrimaryFilterId = filterId;
+                        filterButtons.forEach(btn => {
+                            btn.classList.toggle('is-active', btn.dataset.filter === filterId);
+                        });
+                        filterContent();
+                    },
+                    activateDefault: () => {
+                      const defaultButton = filterContainer.querySelector(`[data-filter="${DEFAULT_FILTER}"]`);
+                      if(defaultButton) defaultButton.classList.add('is-active');
+                    }
+                };
             };
             
-            const initSettingsModal = () => {
-                const modalContainer = document.getElementById('settings-modal-container');
-                const modalHtml = `
-                    <div class="modal-overlay" id="settings-modal" style="display:none;">
-                        <div class="modal-content">
-                            <button class="modal-close-btn" id="modal-close-btn" title="إغلاق" aria-label="إغلاق"></button>
-                            <h2 class="modal-header">الإعدادات</h2>
-                            <div class="settings-content">
-                                <div class="settings-section">
-                                    <h3 class="settings-section-title">مظهر التطبيق</h3>
-                                    <div class="settings-item">
-                                        <h4>الوضع</h4>
-                                        <div class="mode-toggle">
-                                            <button class="mode-btn" data-mode="dark" role="button">ظلام</button>
-                                            <button class="mode-btn" data-mode="light" role="button">نهار</button>
-                                        </div>
-                                    </div>
-                                    <div class="settings-item">
-                                        <h4>اختر السمة</h4>
-                                        <div class="theme-picker" id="theme-picker-container">
-                                            ${Object.entries(PRESET_THEMES).map(([name, color]) => `<div class="theme-dot" data-color="${color}" style="background-color:${color};" title="${name}"></div>`).join('')}
-                                            <label for="custom-color-picker" class="color-picker-label" title="اختر لونًا مخصصًا">
-                                                <input id="custom-color-picker" type="color" class="color-picker-input" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-                modalContainer.innerHTML = modalHtml;
-                const modal = document.getElementById('settings-modal'), openBtn = document.getElementById('settings-btn'), closeBtn = document.getElementById('modal-close-btn');
-                const modalContent = modal.querySelector('.modal-content');
-                const openModal = () => { modal.style.display = 'flex'; requestAnimationFrame(() => { document.body.classList.add('modal-open'); modal.classList.add('is-open'); }); };
-                const closeModal = () => { if (!modal.classList.contains('is-open')) return; document.body.classList.remove('modal-open'); modalContent.classList.add('is-closing'); modalContent.addEventListener('animationend', () => { modal.classList.remove('is-open'); modalContent.classList.remove('is-closing'); modal.style.display = 'none'; }, { once: true }); };
-                openBtn.onclick = openModal; closeBtn.onclick = closeModal;
-                modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-                document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
-                const modeButtons = modal.querySelectorAll('.mode-btn');
-                const applyColorMode = mode => { document.body.classList.toggle('light-mode', mode === 'light'); document.querySelector('meta[name="theme-color"]').setAttribute('content', mode === 'light' ? '#f5f9ff' : '#0a0a0a'); localStorage.setItem('locations-portal-mode', mode); modeButtons.forEach(btn => { const isActive = btn.dataset.mode === mode; btn.classList.toggle('active', isActive); btn.setAttribute('aria-pressed', String(isActive)); }); };
-                modeButtons.forEach(btn => btn.onclick = () => applyColorMode(btn.dataset.mode));
-                const themeDots = modal.querySelectorAll('.theme-dot'), customColorInput = document.getElementById('custom-color-picker'), customColorLabel = customColorInput.parentElement;
-                const hexToHsl = H => { let r=0,g=0,b=0;if(H.length==7){r="0x"+H[1]+H[2];g="0x"+H[3]+H[4];b="0x"+H[5]+H[6];}r/=255;g/=255;b/=255;let cmin=Math.min(r,g,b),cmax=Math.max(r,g,b),delta=cmax-cmin,h=0;if(delta==0)h=0;else if(cmax==r)h=((g-b)/delta)%6;else if(cmax==g)h=(b-r)/delta+2;else h=(r-g)/delta+4;h=Math.round(h*60);if(h<0)h+=360;return h;};
-                const hexToRgb = hex => { let r=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex); return r ? `${parseInt(r[1],16)},${parseInt(r[2],16)},${parseInt(r[3],16)}` : null; }
-                const updateActiveThemeState = hexColor => { const isCustom = !Object.values(PRESET_THEMES).includes(hexColor); themeDots.forEach(dot => dot.classList.toggle('active', dot.dataset.color === hexColor)); customColorLabel.classList.toggle('active', isCustom); customColorLabel.style.backgroundColor = isCustom ? hexColor : 'transparent'; };
-                const applyTheme = hex => { const root = document.documentElement; root.style.setProperty('--primary-hue', String(hexToHsl(hex))); root.style.setProperty('--rgb-primary', hexToRgb(hex)); localStorage.setItem('locations-portal-theme', hex); customColorInput.value = hex; updateActiveThemeState(hex); };
-                themeDots.forEach(dot => dot.onclick = () => applyTheme(dot.dataset.color));
-                customColorInput.addEventListener('input', e => applyTheme(e.target.value));
-                applyColorMode(localStorage.getItem('locations-portal-mode') || 'dark');
-                applyTheme(localStorage.getItem('locations-portal-theme') || PRESET_THEMES.blue);
-            };
-
             const initialize = () => {
-                document.getElementById("currentYear").textContent = new Date().getFullYear();
-                document.querySelector("#settings-btn").innerHTML = ICONS.cog;
-                document.querySelector(".footer-link[href*='t.me/mutlaq1']").innerHTML = ICONS.telegram;
+                const cardHTML = FLATTENED_DATA.map(createCardHTML).join('');
+                grid.insertAdjacentHTML('afterbegin', cardHTML);
                 
-                grid.insertAdjacentHTML('beforeend', SITE_DATA.map(createCardHTML).join(''));
+                const filterManager = initFilters();
                 
-                const primaryCarousel = createCarouselInstance('primary-carousel-wrapper', 'primary-carousel-track', PRIMARY_FILTERS, handlePrimaryFilterChange);
-                
-                document.getElementById('reset-filter-btn').addEventListener('click', () => { const allIndex = primaryCarousel.getIndexById('all'); primaryCarousel.activateByIndex(allIndex + PRIMARY_FILTERS.length, true, true); });
+                document.getElementById('reset-filter-btn').addEventListener('click', () => {
+                    searchInput.value = '';
+                    filterManager.setActive(DEFAULT_FILTER);
+                });
 
-                initSettingsModal();
-                document.querySelector("#modal-close-btn").innerHTML = ICONS.times;
-                initCosmicEffects();
+                searchInput.addEventListener('input', filterContent);
                 
-                // Initial load setup
-                activePrimaryFilterId = 'all';
-                primaryCarousel.activateByIndex(PRIMARY_FILTERS.length, false, false);
+                filterManager.activateDefault();
                 filterContent(); 
             };
 
