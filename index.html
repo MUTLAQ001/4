@@ -8,7 +8,6 @@
     <meta name="theme-color" content="#F7F9FC">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- --- CHANGE: Replaced 'Cairo' font with 'IBM Plex Sans Arabic' --- -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -38,7 +37,6 @@
       @keyframes fadeOut { to { opacity: 0; transform: translateY(10px); } }
 
       body {
-        /* --- CHANGE: Updated font-family --- */
         font-family: 'IBM Plex Sans Arabic', sans-serif;
         background-color: var(--bg-main);
         color: var(--text-dark);
@@ -65,7 +63,6 @@
       }
       .page-title {
         font-size: clamp(2.2rem, 8vw, 2.8rem);
-        /* --- CHANGE: Updated font-weight to match available weight --- */
         font-weight: 700;
         line-height: 1.3;
       }
@@ -74,7 +71,7 @@
         max-width: 450px;
         margin: 0.5rem auto 0;
         line-height: 1.7;
-        font-weight: 400; /* Adjusted for better readability with IBM font */
+        font-weight: 400;
         opacity: 0.8;
       }
       
@@ -344,13 +341,13 @@
                         { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, 
                         { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } 
                     ] },
-                    { title: "كلية العمارة والتخطيط", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية العمارة والتخطيط", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin", building: "F8" } ] },
                     { title: "كلية الهندسة", icon: "fa-cogs", links: [ 
                         { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin", building: "A5" }, 
                         { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin", map_pdf: "maps/map-college-of-engineering-b1.pdf" } 
                     ] },
                     { title: "كلية العلوم", icon: "fa-flask", links: [ 
-                        { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A5" }, 
+                        { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A4" }, 
                         { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "fa-map-pin", building: "F2", map_pdf: "maps/map-college-of-sciences-f2.pdf" }, 
                         { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, 
                         { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, 
@@ -359,10 +356,10 @@
                     ] },
                     { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ 
                         { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "fa-map-pin", building: "A6" }, 
-                        { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F4", map_pdf: "maps/map-college-of-sharia-f4.pdf" } 
+                        { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F6" } 
                     ] },
                     { title: "كلية اللغات", icon: "fa-language", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية الزراعة", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin" } ] },
+                    { title: "كلية الزراعة", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin", building: "F7" } ] },
                     { title: "كلية الطب البيطري", icon: "fa-paw", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "fa-map-pin", building: "A2" } ] },
                     { title: "كلية الإدارة والاقتصاد", icon: "fa-chart-line", links: [ { href: "https://maps.app.goo.gl/u4pxY6yhebFBZ5oX6", text: "طلاب", icon: "fa-map-pin", building: "A3" }, { href: "https://maps.app.goo.gl/xcy39GeUZnNK69SbA", text: "طالبات", icon: "fa-map-pin", building: "F3" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/x8142f18EaHyCqAv8", text: "مقر الرس - طالبات", icon: "fa-map-pin" } ] },
                     { title: "كلية التربية", icon: "fa-chalkboard-teacher", links: [ { href: "https://maps.app.goo.gl/E3nZVpYi7t6j3FY49", text: "طلاب", icon: "fa-map-pin", building: "A14" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin", building: "F8" }, { href: "https://maps.app.goo.gl/Vv6xvC99yEU6BZBAA", text: "مقر رياض الخبراء - طالبات", icon: "fa-map-pin" } ] },
@@ -371,7 +368,7 @@
                     { title: "كلية التمريض", icon: "fa-briefcase-medical", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B5" } ] },
                     { title: "كلية العلوم الطبية التطبيقية", icon: "fa-stethoscope", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "A4" } ] },
                     { title: "الكلية التطبيقية", icon: "fa-layer-group", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C2" }, { href: "https://www.qu.edu.sa/colleges/qac/locations/", text: "بقية الفروع", icon: "fa-external-link-alt" } ] },
-                    { title: "كلية الفنون والتصاميم", icon: "fa-palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "طالبات", icon: "fa-map-pin", building: "F6" } ] }
+                    { title: "كلية الفنون والتصاميم", icon: "fa-palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "طالبات", icon: "fa-map-pin", building: "F7" } ] }
                 ]},
                 { category: 'deanships', title: 'العمادات', icon: 'fa-building-user', links: [ { href: "https://maps.app.goo.gl/SGGQX3GqQjDU9Cc6A", icon: "fa-id-card-alt", text: "عمادة القبول والتسجيل" }, { href: "https://maps.app.goo.gl/uavC8yXQFrNfrnR16", icon: "fa-users-cog", text: "عمادة شؤون الطلاب" }, { href: "https://maps.app.goo.gl/uL7L58xZxehJ4pqt7", icon: "fa-book-reader", text: "عمادة الدراسات العليا والبحث العلمي" }, { href: "https://maps.app.goo.gl/4zfgdfTRLjNhVCAD9", icon: "fa-desktop", text: "عمادة التعلم الإلكتروني وتقنية المعلومات" } ] },
                 { category: 'facilities', title: 'المرافق والخدمات', icon: 'fa-map-signs', links: [ { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c7a8c21d91:0xedc23a33b8b771a4", icon: "fa-hospital-user", text: "المدينة الطبية" }, { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c8cbe278f7:0xb16f62d6ae48782", icon: "fa-clinic-medical", text: "العيادات الخارجية" }, { href: "https://maps.app.goo.gl/kP97DjbXH2CpSUUE8", icon: "fa-car", text: "مدرسة تعليم القيادة" }, { href: "https://maps.app.goo.gl/Fswf7gNWLw4ikM2B9", icon: "fa-shield-alt", text: "الأمن الجامعي" }, { href: "https://goo.gl/maps/hUDYwKSKuPqRuBz36", icon: "fa-dumbbell", text: "النادي الرياضي" }, { href: "https://maps.app.goo.gl/2CEU2VFW5bPPCZUV8", icon: "fa-futbol", text: "ملعب الجامعة" }, { href: "https://maps.app.goo.gl/YnZUmvuQzq5s6wsV8", icon: "fa-microphone-alt", text: "مركز المؤتمرات" }, { href: "https://maps.app.goo.gl/SbvFZ5XCKpAtdLsS9", icon: "fa-lightbulb", text: "مركز ريادة الأعمال الرقمية | كود" }, { href: "https://maps.app.goo.gl/sdy9NRSA6iT8WXn68", icon: "fa-building", text: "إدارة السكن" }, { href: "https://maps.app.goo.gl/rCG7yk96fjyPBS4T8", icon: "fa-bed", text: "السكن الطلابي (بنين)" } ] }
