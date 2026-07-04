@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>دليل مواقع جامعة القصيم</title>
     <meta name="description" content="وصول سريع ومنظم لجميع مواقع الكليات والعمادات والمرافق بجامعة القصيم.">
-    <meta name="theme-color" content="#F7F9FC">
+    <meta name="theme-color" content="#F3F6FB">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <style>
       :root {
-        --accent-color: #316FEA;
+        --accent-color: #2F6BE0;
+        --accent-hover: #2456bd;
         --dark-blue: #0A2D57;
-        --bg-main: #F7F9FC;
+        --bg-main: #F3F6FB;
         --bg-card: #FFFFFF;
-        --bg-button: #F0F4F8;
-        --text-dark: #192a4e;
-        --text-secondary: #8A94A6;
-        --radius-card: 24px;
-        --radius-button: 16px;
+        --bg-button: #F1F5FA;
+        --bg-button-hover: #E5EDF7;
+        --text-dark: #172542;
+        --text-secondary: #7B879C;
+        --border-soft: rgba(23, 51, 99, 0.08);
+        --radius-card: 22px;
+        --radius-button: 14px;
         --radius-full: 999px;
-        --shadow: 0 10px 40px -15px rgba(150, 170, 200, 0.4);
+        --shadow: 0 4px 24px -10px rgba(30, 62, 115, 0.16), 0 1px 3px rgba(16, 40, 80, 0.05);
+        --shadow-hover: 0 16px 36px -14px rgba(30, 62, 115, 0.24), 0 2px 6px rgba(16, 40, 80, 0.06);
         --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -35,6 +38,10 @@
         to { opacity: 1; transform: translateY(0) scale(1); } 
       }
       @keyframes fadeOut { to { opacity: 0; transform: translateY(10px); } }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      }
 
       body {
         font-family: 'IBM Plex Sans Arabic', sans-serif;
@@ -52,28 +59,39 @@
       }
       
       .page-header {
-        background-image: linear-gradient(160deg, #12427d, var(--dark-blue)),
-                          radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 40%);
+        position: relative;
+        overflow: hidden;
+        background-image: linear-gradient(155deg, #1a4e91 0%, var(--dark-blue) 72%);
         color: #FFFFFF;
-        padding: 2.5rem;
+        padding: 2.75rem 2rem;
         border-radius: var(--radius-card);
         text-align: center;
-        box-shadow: 0 10px 30px -10px rgba(10, 45, 87, 0.5);
+        box-shadow: 0 18px 44px -18px rgba(10, 45, 87, 0.55);
         animation: popIn 0.8s var(--ease-out-quint) .1s both;
+      }
+      .page-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 45%);
+        pointer-events: none;
       }
 
       .page-title {
-        font-size: clamp(2.2rem, 8vw, 2.8rem);
+        position: relative;
+        font-size: clamp(2rem, 7vw, 2.6rem);
         font-weight: 700;
-        line-height: 1.3;
+        line-height: 1.25;
+        letter-spacing: -0.5px;
       }
       .page-subtitle {
-        font-size: 1rem;
-        max-width: 450px;
-        margin: 0.5rem auto 0;
-        line-height: 1.7;
+        position: relative;
+        font-size: 0.98rem;
+        max-width: 440px;
+        margin: 0.65rem auto 0;
+        line-height: 1.75;
         font-weight: 400;
-        opacity: 0.8;
+        opacity: 0.78;
       }
       
       .controls-container {
@@ -95,12 +113,13 @@
       .search-icon {
         position: absolute;
         top: 50%;
-        right: 24px;
+        right: 22px;
         transform: translateY(-50%);
         color: var(--text-secondary);
         transition: color 0.3s ease, transform 0.3s ease;
         pointer-events: none;
-        font-size: 1.1rem;
+        width: 20px;
+        height: 20px;
       }
       #search-input {
         width: 100%;
@@ -118,9 +137,9 @@
       #search-input::placeholder { color: var(--text-secondary); }
       #search-input:focus {
         outline: none;
-        border-color: #D1D9E4;
+        border-color: var(--accent-color);
         transform: translateY(-2px);
-        box-shadow: 0 0 0 3px rgba(150, 170, 200, 0.2), 0 10px 20px -5px rgba(10, 45, 87, 0.15);
+        box-shadow: 0 0 0 4px rgba(47, 107, 224, 0.12), 0 12px 24px -8px rgba(10, 45, 87, 0.16);
       }
       #search-input:focus ~ .search-icon { 
         color: var(--text-dark);
@@ -155,11 +174,19 @@
       
       .content-card {
         background-color: var(--bg-card);
+        border: 1px solid var(--border-soft);
         border-radius: var(--radius-card);
         padding: 1.5rem;
         box-shadow: var(--shadow);
         animation: popIn 0.6s var(--ease-out-quint) both;
         animation-delay: var(--animation-order, 0s);
+        transition: transform 0.35s var(--ease-out-quint), box-shadow 0.35s var(--ease-out-quint);
+      }
+      @media (hover: hover) {
+        .content-card:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-hover);
+        }
       }
       .is-filtered-out { display: none !important; }
       .is-hiding { animation: fadeOut 0.3s ease-out forwards; animation-delay: var(--animation-order, 0s); }
@@ -169,51 +196,55 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 1px solid var(--bg-main);
+        margin-bottom: 1.15rem;
+        padding-bottom: 1.15rem;
+        border-bottom: 1px solid var(--border-soft);
       }
       .card-title-group {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.9rem;
         flex-direction: row-reverse;
       }
-      .card-header .title { font-size: 1.6rem; font-weight: 700; color: var(--text-dark); }
+      .card-header .title { font-size: 1.3rem; font-weight: 700; color: var(--text-dark); letter-spacing: -0.2px; }
       .card-header .icon-wrapper {
-        width: 44px; height: 44px;
+        width: 42px; height: 42px;
         border-radius: 12px;
         background-color: var(--bg-button);
         color: var(--accent-color);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.5rem;
+        flex-shrink: 0;
       }
+      .card-header .icon-wrapper svg { width: 22px; height: 22px; }
 
       .links-group { display: flex; flex-direction: column; gap: 0.75rem; }
       .location-link {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.5rem 0.75rem;
+        padding: 0.6rem 0.85rem;
         border-radius: var(--radius-button);
         background: var(--bg-button);
+        border: 1px solid transparent;
         text-decoration: none;
         font-weight: 600;
-        font-size: 1rem;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        font-size: 0.98rem;
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
         color: var(--text-dark);
       }
       .location-link:hover {
-        background-color: #e4eaf3;
+        background-color: var(--bg-button-hover);
+        border-color: var(--border-soft);
       }
+      .location-link:active { transform: scale(0.99); }
       .link-main-content {
         display: flex;
         align-items: center;
         gap: 0.75rem;
       }
-      .location-link i { font-size: 1.1rem; color: var(--accent-color); }
+      .location-link svg { width: 19px; height: 19px; color: var(--accent-color); flex-shrink: 0; }
       
       .building-badge {
         min-width: 32px; height: 32px;
@@ -222,7 +253,7 @@
         background: var(--accent-color); color: white;
         display: flex; align-items: center; justify-content: center;
         font-size: 0.9rem; font-weight: 700; flex-shrink: 0;
-        box-shadow: 0 2px 5px rgba(49, 111, 234, 0.3);
+        box-shadow: 0 2px 6px -1px rgba(47, 107, 224, 0.35);
       }
       
       .link-actions {
@@ -239,19 +270,19 @@
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        font-size: 1rem;
         flex-shrink: 0;
         transition: background-color 0.2s ease, transform 0.2s ease;
         cursor: pointer;
       }
+      .map-btn-small svg { width: 17px; height: 17px; }
       .map-btn-small:hover {
-        background-color: #e4eaf3;
-        transform: scale(1.1);
+        background-color: var(--bg-button-hover);
+        transform: scale(1.08);
       }
       
       .empty-state { display: none; grid-column: 1 / -1; justify-content: center; align-items: center; text-align: center; padding: 4rem 1.5rem; flex-direction: column; gap: 1.5rem; color: var(--text-dark); }
       .empty-state.is-visible { display: flex; }
-      .empty-state .icon { font-size: 3rem; color: var(--accent-color); opacity: 0.5; }
+      .empty-state .icon { width: 52px; height: 52px; color: var(--accent-color); opacity: 0.45; stroke-width: 1.75; }
       .empty-state span { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem; }
       .empty-state .reset-btn { background: var(--accent-color); color: white; border: none; padding: 0.8rem 2rem; border-radius: var(--radius-full); font-family: 'IBM Plex Sans Arabic', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: transform 0.2s ease; }
       .empty-state .reset-btn:hover { transform: scale(1.05); }
@@ -292,8 +323,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 0.9rem;
       }
+      .footer-link .icon-bg svg { width: 15px; height: 15px; }
     </style>
 </head>
 <body>
@@ -305,7 +336,7 @@
         
         <div class="controls-container">
             <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
+                <i data-lucide="search" class="search-icon"></i>
                 <input type="search" id="search-input" placeholder="ابحث عن كلية, عمادة, مرفق..." aria-label="صندوق البحث">
             </div>
 
@@ -316,7 +347,7 @@
 
         <main class="content-grid" id="content-grid">
             <div class="empty-state" id="empty-state">
-                <i class="fas fa-map-marked-alt icon"></i>
+                <i data-lucide="search-x" class="icon"></i>
                 <span>لا توجد نتائج تطابق بحثك.</span>
                 <button class="reset-btn" id="reset-filter-btn">عرض الكل</button>
             </div>
@@ -325,60 +356,61 @@
     
     <footer class="page-footer">
         <a href="https://t.me/Qassim_U" class="footer-link" target="_blank" rel="noopener noreferrer">
-            <span class="icon-bg"><i class="fas fa-users"></i></span>
+            <span class="icon-bg"><i data-lucide="users"></i></span>
             <span>Qassim_U</span>
         </a>
         <a href="#" class="footer-link" target="_blank" rel="noopener noreferrer">
-            <span class="icon-bg"><i class="fas fa-bullhorn"></i></span>
+            <span class="icon-bg"><i data-lucide="megaphone"></i></span>
             <span>Qassim_QU</span>
         </a>
     </footer>
     
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const SITE_DATA_RAW = [
-                { category: 'colleges', title: 'الكليات', icon: 'fa-university', type: 'multi-department', departments: [
-                    { title: "كلية الحاسب", icon: "fa-laptop-code", links: [ 
-                        { href: "https://maps.app.goo.gl/aM5wytWf1N4fiKE3A", text: "طلاب", icon: "fa-map-pin", building: "C1" }, 
-                        { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "fa-map-pin", building: "F5", map_pdf: "maps/map-college-of-computer-f5.pdf" }, 
-                        { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, 
-                        { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, 
-                        { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, 
-                        { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } 
+                { category: 'colleges', title: 'الكليات', icon: 'graduation-cap', type: 'multi-department', departments: [
+                    { title: "كلية الحاسب", icon: "laptop", links: [ 
+                        { href: "https://maps.app.goo.gl/aM5wytWf1N4fiKE3A", text: "طلاب", icon: "map-pin", building: "C1" }, 
+                        { href: "https://maps.app.goo.gl/nfvJK3LXANxUvGMR7", text: "طالبات", icon: "map-pin", building: "F5", map_pdf: "maps/map-college-of-computer-f5.pdf" }, 
+                        { href: "https://maps.app.goo.gl/FpWckdfczc1Zw9SGA", text: "مقر الرس - طلاب", icon: "map-pin" }, 
+                        { href: "https://maps.app.goo.gl/ziGGqiiRmVWgAsK77", text: "مقر الرس - طالبات", icon: "map-pin" }, 
+                        { href: "https://maps.app.goo.gl/TJKpwvu5PU3hiUUE9", text: "مقر عنيزة - طلاب", icon: "map-pin" }, 
+                        { href: "https://goo.gl/maps/5cXcGmWgRgxCFugY8", text: "مقر عنيزة - طالبات", icon: "map-pin" } 
                     ] },
-                    { title: "كلية العمارة والتخطيط", icon: "fa-drafting-compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "fa-map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin", building: "F8" } ] },
-                    { title: "كلية الهندسة", icon: "fa-cogs", links: [ 
-                        { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "fa-map-pin", building: "A5" }, 
-                        { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "fa-map-pin", map_pdf: "maps/map-college-of-engineering-b1.pdf" } 
+                    { title: "كلية العمارة والتخطيط", icon: "compass", links: [ { href: "https://maps.app.goo.gl/azhphjNfXgcVrnRE7", text: "طلاب", icon: "map-pin", building: "C1" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "map-pin", building: "F8" } ] },
+                    { title: "كلية الهندسة", icon: "cog", links: [ 
+                        { href: "https://maps.app.goo.gl/6cJJjN3jw5Z4aNqn8", text: "طلاب", icon: "map-pin", building: "A5" }, 
+                        { href: "https://maps.app.goo.gl/QWpAQijbvtfAGJ9x7", text: "طالبات", icon: "map-pin", map_pdf: "maps/map-college-of-engineering-b1.pdf" } 
                     ] },
-                    { title: "كلية العلوم", icon: "fa-flask", links: [ 
-                        { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "fa-map-pin", building: "A4" }, 
-                        { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "fa-map-pin", building: "F2", map_pdf: "maps/map-college-of-sciences-f2.pdf" }, 
-                        { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, 
-                        { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "fa-map-pin" }, 
-                        { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "fa-map-pin" }, 
-                        { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "fa-map-pin" } 
+                    { title: "كلية العلوم", icon: "flask-conical", links: [ 
+                        { href: "https://maps.app.goo.gl/NNbJHtvKZjziWgtf9", text: "طلاب", icon: "map-pin", building: "A4" }, 
+                        { href: "https://maps.app.goo.gl/qYiczcvZ594ifjao8", text: "طالبات", icon: "map-pin", building: "F2", map_pdf: "maps/map-college-of-sciences-f2.pdf" }, 
+                        { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "map-pin" }, 
+                        { href: "https://maps.app.goo.gl/STNWoVgsdKQ78nLB9", text: "مقر الرس - طالبات", icon: "map-pin" }, 
+                        { href: "https://maps.app.goo.gl/SLNMizwQA8JKE1o76", text: "مقر عنيزة - طلاب", icon: "map-pin" }, 
+                        { href: "https://maps.app.goo.gl/RErZQdojf7fAFMCc9", text: "مقر عنيزة - طالبات", icon: "map-pin" } 
                     ] },
                     /* === START: SIMPLIFIED SHARIA COLLEGE SECTION === */
-                    { title: "كلية الشريعة", icon: "fa-balance-scale", links: [ 
-                        { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "fa-map-pin", building: "A6" }, 
-                        { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "fa-map-pin", building: "F6", map_pdf: "maps/map-college-sharia-f6-ground.pdf" }
+                    { title: "كلية الشريعة", icon: "scale", links: [ 
+                        { href: "https://maps.app.goo.gl/JdafjR42wc5We6Dk6", text: "طلاب", icon: "map-pin", building: "A6" }, 
+                        { href: "https://maps.app.goo.gl/9PEBr5XunvbzFNGY7", text: "طالبات", icon: "map-pin", building: "F6", map_pdf: "maps/map-college-sharia-f6-ground.pdf" }
                     ] },
                     /* === END: SIMPLIFIED SHARIA COLLEGE SECTION === */
-                    { title: "كلية اللغات", icon: "fa-language", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "طلاب", icon: "fa-map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية الزراعة", icon: "fa-seedling", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "fa-map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "fa-map-pin", building: "F7" } ] },
-                    { title: "كلية الطب البيطري", icon: "fa-paw", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "fa-map-pin", building: "A2" } ] },
-                    { title: "كلية الإدارة والاقتصاد", icon: "fa-chart-line", links: [ { href: "https://maps.app.goo.gl/u4pxY6yhebFBZ5oX6", text: "طلاب", icon: "fa-map-pin", building: "A3" }, { href: "https://maps.app.goo.gl/xcy39GeUZnNK69SbA", text: "طالبات", icon: "fa-map-pin", building: "F3" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "fa-map-pin" }, { href: "https://maps.app.goo.gl/x8142f18EaHyCqAv8", text: "مقر الرس - طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية التربية", icon: "fa-chalkboard-teacher", links: [ { href: "https://maps.app.goo.gl/E3nZVpYi7t6j3FY49", text: "طلاب", icon: "fa-map-pin", building: "A14" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "fa-map-pin", building: "F8" }, { href: "https://maps.app.goo.gl/Vv6xvC99yEU6BZBAA", text: "مقر رياض الخبراء - طالبات", icon: "fa-map-pin" } ] },
-                    { title: "كلية الطب", icon: "fa-user-md", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B2" } ] },
-                    { title: "كلية الصيدلة", icon: "fa-pills", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B4" } ] },
-                    { title: "كلية التمريض", icon: "fa-briefcase-medical", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "B5" } ] },
-                    { title: "كلية العلوم الطبية التطبيقية", icon: "fa-stethoscope", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "A4" } ] },
-                    { title: "الكلية التطبيقية", icon: "fa-layer-group", links: [ { href: "#", text: "طلاب", icon: "fa-map-pin", building: "C2" }, { href: "https://www.qu.edu.sa/colleges/qac/locations/", text: "بقية الفروع", icon: "fa-external-link-alt" } ] },
-                    { title: "كلية الفنون والتصاميم", icon: "fa-palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "طالبات", icon: "fa-map-pin", building: "F7" } ] }
+                    { title: "كلية اللغات", icon: "languages", links: [ { href: "https://maps.app.goo.gl/6nU1yHd6AZMMqniq8", text: "طلاب", icon: "map-pin", building: "A6" }, { href: "https://maps.app.goo.gl/5rBrvtixLZC58Lcv8", text: "مقر بريدة - طالبات", icon: "map-pin" } ] },
+                    { title: "كلية الزراعة", icon: "sprout", links: [ { href: "https://maps.app.goo.gl/vRR1WiavypoHSCnR6", text: "طلاب", icon: "map-pin", building: "A2" }, { href: "https://maps.app.goo.gl/ZNJbwtedqVhkoMSY7", text: "طالبات", icon: "map-pin", building: "F7" } ] },
+                    { title: "كلية الطب البيطري", icon: "paw-print", links: [ { href: "https://maps.app.goo.gl/e5Dh4j2iz4j6UAHG7", text: "طلاب", icon: "map-pin", building: "A2" } ] },
+                    { title: "كلية الإدارة والاقتصاد", icon: "trending-up", links: [ { href: "https://maps.app.goo.gl/u4pxY6yhebFBZ5oX6", text: "طلاب", icon: "map-pin", building: "A3" }, { href: "https://maps.app.goo.gl/xcy39GeUZnNK69SbA", text: "طالبات", icon: "map-pin", building: "F3" }, { href: "https://maps.app.goo.gl/uJY8YNhn598UDJFw9", text: "مقر الرس - طلاب", icon: "map-pin" }, { href: "https://maps.app.goo.gl/x8142f18EaHyCqAv8", text: "مقر الرس - طالبات", icon: "map-pin" } ] },
+                    { title: "كلية التربية", icon: "school", links: [ { href: "https://maps.app.goo.gl/E3nZVpYi7t6j3FY49", text: "طلاب", icon: "map-pin", building: "A14" }, { href: "https://maps.app.goo.gl/UA4LTM4DAhYRCBXU9", text: "طالبات", icon: "map-pin", building: "F8" }, { href: "https://maps.app.goo.gl/Vv6xvC99yEU6BZBAA", text: "مقر رياض الخبراء - طالبات", icon: "map-pin" } ] },
+                    { title: "كلية الطب", icon: "stethoscope", links: [ { href: "#", text: "طلاب", icon: "map-pin", building: "B2" } ] },
+                    { title: "كلية الصيدلة", icon: "pill", links: [ { href: "#", text: "طلاب", icon: "map-pin", building: "B4" } ] },
+                    { title: "كلية التمريض", icon: "heart-pulse", links: [ { href: "#", text: "طلاب", icon: "map-pin", building: "B5" } ] },
+                    { title: "كلية العلوم الطبية التطبيقية", icon: "microscope", links: [ { href: "#", text: "طلاب", icon: "map-pin", building: "A4" } ] },
+                    { title: "الكلية التطبيقية", icon: "layers", links: [ { href: "#", text: "طلاب", icon: "map-pin", building: "C2" }, { href: "https://www.qu.edu.sa/colleges/qac/locations/", text: "بقية الفروع", icon: "external-link" } ] },
+                    { title: "كلية الفنون والتصاميم", icon: "palette", links: [ { href: "https://maps.app.goo.gl/rwWGc4zkcCwSmeog6", text: "طالبات", icon: "map-pin", building: "F7" } ] }
                 ]},
-                { category: 'deanships', title: 'العمادات', icon: 'fa-building-user', links: [ { href: "https://maps.app.goo.gl/SGGQX3GqQjDU9Cc6A", icon: "fa-id-card-alt", text: "عمادة القبول والتسجيل", building: "A7" }, { href: "https://maps.app.goo.gl/uavC8yXQFrNfrnR16", icon: "fa-users-cog", text: "عمادة شؤون الطلاب", building: "A7" }, { href: "https://maps.app.goo.gl/uL7L58xZxehJ4pqt7", icon: "fa-book-reader", text: "عمادة الدراسات العليا والبحث العلمي", building: "A7" }, { href: "https://maps.app.goo.gl/4zfgdfTRLjNhVCAD9", icon: "fa-desktop", text: "عمادة التعلم الإلكتروني وتقنية المعلومات", building: "A7" } ] },
-                { category: 'facilities', title: 'المرافق والخدمات', icon: 'fa-map-signs', links: [ { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c7a8c21d91:0xedc23a33b8b771a4", icon: "fa-hospital-user", text: "المدينة الطبية" }, { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c8cbe278f7:0xb16f62d6ae48782", icon: "fa-clinic-medical", text: "العيادات الخارجية" }, { href: "https://maps.app.goo.gl/kP97DjbXH2CpSUUE8", icon: "fa-car", text: "مدرسة تعليم القيادة" }, { href: "https://maps.app.goo.gl/Fswf7gNWLw4ikM2B9", icon: "fa-shield-alt", text: "الأمن الجامعي", building: "A16" }, { href: "https://goo.gl/maps/hUDYwKSKuPqRuBz36", icon: "fa-dumbbell", text: "النادي الرياضي" }, { href: "https://maps.app.goo.gl/2CEU2VFW5bPPCZUV8", icon: "fa-futbol", text: "ملعب الجامعة" }, { href: "https://maps.app.goo.gl/YnZUmvuQzq5s6wsV8", icon: "fa-microphone-alt", text: "مركز الملك عبدالعزيز للمؤتمرات" }, { href: "https://maps.app.goo.gl/SbvFZ5XCKpAtdLsS9", icon: "fa-lightbulb", text: "مركز ريادة الأعمال الرقمية | كود" }, { href: "https://maps.app.goo.gl/sdy9NRSA6iT8WXn68", icon: "fa-building", text: "إدارة السكن", building: "G4" }, { href: "https://maps.app.goo.gl/rCG7yk96fjyPBS4T8", icon: "fa-bed", text: "السكن الطلابي (بنين)", building: "G" } ] }
+                { category: 'deanships', title: 'العمادات', icon: 'building-2', links: [ { href: "https://maps.app.goo.gl/SGGQX3GqQjDU9Cc6A", icon: "id-card", text: "عمادة القبول والتسجيل", building: "A7" }, { href: "https://maps.app.goo.gl/uavC8yXQFrNfrnR16", icon: "users-round", text: "عمادة شؤون الطلاب", building: "A7" }, { href: "https://maps.app.goo.gl/uL7L58xZxehJ4pqt7", icon: "book-open", text: "عمادة الدراسات العليا والبحث العلمي", building: "A7" }, { href: "https://maps.app.goo.gl/4zfgdfTRLjNhVCAD9", icon: "monitor", text: "عمادة التعلم الإلكتروني وتقنية المعلومات", building: "A7" } ] },
+                { category: 'facilities', title: 'المرافق والخدمات', icon: 'signpost', links: [ { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c7a8c21d91:0xedc23a33b8b771a4", iconSvg: '<svg viewBox="0 0 24 24"><path fill="currentColor" d="M5.723 4.021 A9.3 9.3 0 1 1 5.723 19.979 A8 8 0 0 0 5.723 4.021 Z"/></svg>', text: "المدينة الطبية" }, { href: "https://www.google.com/maps/place//data=!4m2!3m1!1s0x158201c8cbe278f7:0xb16f62d6ae48782", icon: "stethoscope", text: "العيادات الخارجية" }, { href: "https://maps.app.goo.gl/kP97DjbXH2CpSUUE8", icon: "car", text: "مدرسة تعليم القيادة" }, { href: "https://maps.app.goo.gl/Fswf7gNWLw4ikM2B9", icon: "shield", text: "الأمن الجامعي", building: "A16" }, { href: "https://goo.gl/maps/hUDYwKSKuPqRuBz36", icon: "dumbbell", text: "النادي الرياضي" }, { href: "https://maps.app.goo.gl/2CEU2VFW5bPPCZUV8", icon: "goal", text: "ملعب الجامعة" }, { href: "https://maps.app.goo.gl/YnZUmvuQzq5s6wsV8", icon: "mic", text: "مركز الملك عبدالعزيز للمؤتمرات" }, { href: "https://maps.app.goo.gl/SbvFZ5XCKpAtdLsS9", icon: "lightbulb", text: "مركز ريادة الأعمال الرقمية | كود" }, { href: "https://maps.app.goo.gl/sdy9NRSA6iT8WXn68", icon: "building", text: "إدارة السكن", building: "G4" }, { href: "https://maps.app.goo.gl/rCG7yk96fjyPBS4T8", icon: "bed", text: "السكن الطلابي (بنين)", building: "G" } ] }
             ];
             
             const FLATTENED_DATA = [];
@@ -395,14 +427,14 @@
                   emptyState = document.getElementById('empty-state'),
                   searchInput = document.getElementById('search-input'),
                   filterContainer = document.getElementById('filter-container');
-            let activePrimaryFilterId = DEFAULT_FILTER, isAnimating = false;
+            let activePrimaryFilterId = DEFAULT_FILTER;
 
             const createCardHTML = (cardData, index) => {
                 const header = `
                     <div class="card-header">
                         <div class="card-title-group">
                             <h2 class="title">${cardData.title}</h2>
-                            <div class="icon-wrapper"><i class="fas ${cardData.icon}"></i></div>
+                            <div class="icon-wrapper"><i data-lucide="${cardData.icon}"></i></div>
                         </div>
                     </div>`;
                 
@@ -410,12 +442,12 @@
                     const badgeHTML = link.building ? `<div class="building-badge">${link.building}</div>` : '';
                     
                     const mapButtonHTML = link.map_pdf
-                        ? `<div role="button" onclick="event.preventDefault(); event.stopPropagation(); window.open('${link.map_pdf}', '_blank');" class="map-btn-small" title="مخطط المبنى"><i class="fas fa-map-marked-alt"></i></div>`
+                        ? `<div role="button" onclick="event.preventDefault(); event.stopPropagation(); window.open('${link.map_pdf}', '_blank');" class="map-btn-small" title="مخطط المبنى"><i data-lucide="map"></i></div>`
                         : '';
                     
                     return `<a href="${link.href}" target="_blank" rel="noopener noreferrer" class="location-link">
                                 <div class="link-main-content">
-                                    <i class="fas ${link.icon}"></i>
+                                    ${link.iconSvg ? link.iconSvg : `<i data-lucide="${link.icon}"></i>`}
                                     <span>${link.text}</span>
                                 </div>
                                 <div class="link-actions">
@@ -430,34 +462,32 @@
             };
             
             const filterContent = () => {
-                if (isAnimating) return; 
-                isAnimating = true;
-
                 const searchQuery = searchInput.value.toLowerCase().trim();
                 const cards = Array.from(grid.querySelectorAll('.content-card'));
-                const toHide = [], toShow = [];
                 let visibleCardCount = 0;
-                
+
                 cards.forEach(card => {
                     const categoryMatch = card.dataset.category === activePrimaryFilterId;
                     const searchMatch = searchQuery === '' || card.textContent.toLowerCase().includes(searchQuery);
                     const shouldShow = categoryMatch && searchMatch;
 
-                    if (shouldShow) visibleCardCount++;
-                    const isVisible = !card.classList.contains('is-filtered-out');
-
-                    if (shouldShow && !isVisible) toShow.push(card);
-                    else if (!shouldShow && isVisible) toHide.push(card);
+                    if (shouldShow) {
+                        const wasHidden = card.classList.contains('is-filtered-out');
+                        card.classList.remove('is-filtered-out', 'is-hiding');
+                        if (wasHidden) {
+                            card.style.setProperty('--animation-order', `${visibleCardCount * 45}ms`);
+                            card.classList.remove('is-showing');
+                            void card.offsetWidth;
+                            card.classList.add('is-showing');
+                        }
+                        visibleCardCount++;
+                    } else {
+                        card.classList.add('is-filtered-out');
+                        card.classList.remove('is-showing', 'is-hiding');
+                    }
                 });
 
                 emptyState.classList.toggle('is-visible', visibleCardCount === 0);
-                let hideAnimationTime = toHide.length * 40 + 200;
-                toHide.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 30}ms`); card.classList.add('is-hiding'); card.addEventListener('animationend', () => { card.classList.add('is-filtered-out'); card.classList.remove('is-hiding'); }, { once: true }); });
-                
-                setTimeout(() => {
-                    toShow.forEach((card, i) => { card.style.setProperty('--animation-order', `${i * 50}ms`); card.classList.remove('is-filtered-out'); card.classList.add('is-showing'); card.addEventListener('animationend', () => card.classList.remove('is-showing'), { once: true }); });
-                    setTimeout(() => { isAnimating = false; }, toShow.length * 50 + 300);
-                }, toHide.length > 0 ? hideAnimationTime : 0);
             };
             
             const initFilters = () => {
@@ -500,7 +530,9 @@
             const initialize = () => {
                 const cardHTML = FLATTENED_DATA.map(createCardHTML).join('');
                 grid.insertAdjacentHTML('afterbegin', cardHTML);
-                
+
+                if (window.lucide) lucide.createIcons();
+
                 const filterManager = initFilters();
                 
                 document.getElementById('reset-filter-btn').addEventListener('click', () => {
